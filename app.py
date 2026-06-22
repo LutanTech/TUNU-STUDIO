@@ -75,7 +75,12 @@ def index():
         except Exception as e:
             print("Database save error:", e)
 
-        return send_file(output, mimetype="image/png")
+        return send_file(
+            output, 
+            mimetype="image/png",
+            as_attachment=False,
+            conditional=False
+        )
 
     return render_template("index.html")
 
